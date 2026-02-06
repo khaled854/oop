@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Khaled | C++ OOP Portfolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Khaled</h1>
+        <p>C++ Object-Oriented Programming Practice</p>
+    </header>
+
+    <main>
+
+        <!-- ================= EMPLOYEE ================= -->
+        <section class="card">
+            <h2>Employee Class</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class employee {
+public:
+    string Name;
+    string Company;
+    int Age;
+
+    employee(string name, string company, int age) {
+        Name = name;
+        Company = company;
+        Age = age;
+    }
+
+    void introduce() {
+        cout &lt;&lt; Name &lt;&lt; " works at " &lt;&lt; Company &lt;&lt; " and is " &lt;&lt; Age &lt;&lt; " years old" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    employee e1("Khaled", "Amazon", 16);
+    e1.introduce();
+}
+</code></pre>
+            <div class="description">
+                Demonstrates basic class structure, object creation, and constructor usage in C++.
+            </div>
+        </section>
+
+        <!-- ================= STUDENT ================= -->
+        <section class="card">
+            <h2>Student Class</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class student {
+public:
+    string Name;
+    int Age;
+    int Grade;
+
+    student(string name, int age, int grade) {
+        Name = name;
+        Age = age;
+        Grade = grade;
+    }
+
+    void introduce() {
+        cout &lt;&lt; Name &lt;&lt; " | Age: " &lt;&lt; Age &lt;&lt; " | Grade: " &lt;&lt; Grade &lt;&lt; endl;
+    }
+};
+
+int main() {
+    student s1("Khaled", 18, 99);
+    s1.introduce();
+}
+</code></pre>
+            <div class="description">
+                Simple example showing how objects store and display related data using constructors.
+            </div>
+        </section>
+
+        <!-- ================= BOOK ================= -->
+        <section class="card">
+            <h2>Book Class</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class book {
+public:
+    string Title;
+    string Author;
+    int Pages;
+
+    book(string title, string author, int pages) {
+        Title = title;
+        Author = author;
+        Pages = pages;
+    }
+
+    void show() {
+        cout &lt;&lt; Title &lt;&lt; " by " &lt;&lt; Author &lt;&lt; " (" &lt;&lt; Pages &lt;&lt; " pages)" &lt;&lt; endl;
+    }
+};
+
+int main() {
+    book b1("The House", "Khaled", 200);
+    b1.show();
+}
+</code></pre>
+            <div class="description">
+                Models a real-world book entity using attributes and methods.
+            </div>
+        </section>
+
+        <!-- ================= MOBILE ================= -->
+        <section class="card">
+            <h2>Mobile (Encapsulation)</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class mobile {
+private:
+    string Brand;
+    string Model;
+    int Price;
+
+public:
+    void setbrand(string brand) {
+        Brand = brand;
+    }
+
+    void setmodel(string model) {
+        Model = model;
+    }
+
+    void setprice(int price) {
+        if (price &gt;= 0)
+            Price = price;
+    }
+
+    void show() {
+        cout &lt;&lt; Brand &lt;&lt; " " &lt;&lt; Model &lt;&lt; " | $" &lt;&lt; Price &lt;&lt; endl;
+    }
+
+    mobile(string brand, string model, int price) {
+        setbrand(brand);
+        setmodel(model);
+        setprice(price);
+    }
+};
+
+int main() {
+    mobile m("Samsung", "S23", 2000);
+    m.show();
+}
+</code></pre>
+            <div class="description">
+                Applies encapsulation by protecting data and validating input using setters.
+            </div>
+        </section>
+
+        <!-- ================= BANK ACCOUNT ================= -->
+        <section class="card">
+            <h2>Bank Account</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class bankaccount {
+private:
+    string Owner;
+    int Balance;
+
+public:
+    bankaccount(string owner, int balance) {
+        Owner = owner;
+        Balance = balance;
+    }
+
+    void show() {
+        cout &lt;&lt; Owner &lt;&lt; " Balance: " &lt;&lt; Balance &lt;&lt; endl;
+    }
+};
+
+int main() {
+    bankaccount b("Khaled", 190000);
+    b.show();
+}
+</code></pre>
+            <div class="description">
+                Simulates a basic banking system using private data members.
+            </div>
+        </section>
+
+        <!-- ================= USER ACCOUNT ================= -->
+        <section class="card">
+            <h2>User Account (Validation)</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class useraccount {
+private:
+    string Username;
+    string Password;
+    int Age;
+
+public:
+    useraccount(string username, string password, int age) {
+        if (password.length() &gt;= 6 && age &gt;= 13) {
+            Username = username;
+            Password = password;
+            Age = age;
+        }
+    }
+
+    void show() {
+        cout &lt;&lt; Username &lt;&lt; " | Age: " &lt;&lt; Age &lt;&lt; endl;
+    }
+};
+
+int main() {
+    useraccount u("Khaled", "1234567", 19);
+    u.show();
+}
+</code></pre>
+            <div class="description">
+                Implements real-world validation rules for age and password security.
+            </div>
+        </section>
+
+        <!-- ================= MOVIE ================= -->
+        <section class="card">
+            <h2>Movie Class (Final)</h2>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+class movie {
+private:
+    string Title;
+    string Director;
+    int Rating;
+
+public:
+    movie(string title, string director, int rating) {
+        if (rating &gt;= 1 && rating &lt;= 10) {
+            Title = title;
+            Director = director;
+            Rating = rating;
+        }
+    }
+
+    void show() {
+        cout &lt;&lt; Title &lt;&lt; " - " &lt;&lt; Director &lt;&lt; " | Rating: " &lt;&lt; Rating &lt;&lt; endl;
+    }
+};
+
+int main() {
+    movie m("Inception", "Nolan", 9);
+    m.show();
+}
+</code></pre>
+            <div class="description">
+                Shows clean encapsulation with defensive programming to prevent invalid data.
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 Khaled – C++ OOP Portfolio</p>
+    </footer>
+
+</body>
+
+</html>
